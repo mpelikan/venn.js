@@ -495,6 +495,7 @@
         var circles = nodes.append("circle")
                .attr("r",  function(d) { return d.radius; })
                .style("fill-opacity", nodeOpacity)
+               .style("display", function(d) { return d.radius > 0 ? "block" : "none"; } )
                .attr("cx", function(d) { return d.x; })
                .attr("cy", function(d) { return d.y; })
                .style("stroke", function(d, i) { return circleStrokeColours(i); })
@@ -508,6 +509,7 @@
                .attr("dy", "0.35em")
                .style("stroke", function(d, i) { return textStrokeColours(i); })
                .style("fill", function(d, i) { return textFillColours(i); })
+               .style("display", function(d) { return d.radius > 0 ? "block" : "none"; } )
                .text(function(d) { return d.label; });
 
         centerVennDiagram( diagram, width, height, padding );
