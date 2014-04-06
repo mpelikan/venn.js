@@ -482,6 +482,7 @@
             circleFillColours = parameters.circleFillColours || colours,
             circleStrokeColours = parameters.circleStrokeColours || circleFillColours,
             circleStrokeWidth = parameters.circleStrokeWidth || function(i) { return 0; },
+            circleStrokeOpacity = parameters.circleStrokeOpacity || function(i) { return 1; },
             textFillColours = parameters.textFillColours || colours,
             textStrokeColours = parameters.textStrokeColours || textFillColours,
             nodeOpacity = parameters.opacity || 0.3,
@@ -507,6 +508,7 @@
                .attr("cy", function(d) { return d.y; })
                .style("stroke", function(d, i) { return circleStrokeColours(i); })
                .style("stroke-width", function(d, i) { return circleStrokeWidth(i); })
+               .style("stroke-opacity", function(d, i) { return circleStrokeOpacity(i); })
                .style("fill", function(d, i) { return circleFillColours(i); });
 
         var text = nodes.append("text")
